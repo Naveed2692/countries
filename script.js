@@ -22,13 +22,14 @@ result.innerHTML = `<img src="${data[0].flags.svg}" class="flag-img">
 <h5>Continent:<span class="font">${data[0].continents[0]}</span></h5>
 <h5>Capital:<span class="font">${data[0].capital[0]}</span></h5>
 <h5>Currency:<span class="font">${data[0].currencies[Object.keys(data[0].currencies)].name} , ${Object.keys(data[0].currencies)[0]}</span></h5>
-<h5>Languages:<span class="font">${Object.values(data[0].languages).toString().split(",").join(", ")}</span></h5>
-
-
-`;
-    
-   
-   
+`;  
+})
+.catch((error) => {
+    if (countryName === '') {
+        result.innerHTML = `<h5>Please enter a country name.</h5>`;
+    } else {
+        result.innerHTML = `<h5>Please enter a valid country name.</h5>`;
+    }
 });
 
 });
